@@ -235,13 +235,12 @@ class ToolManager:
             # Already logged and raised
             raise
         except ToolInstallationError:
-            # Already logged and raised
+            # Re-raise ToolInstallationError as-is
             raise
         except Exception as e:
-            error_msg = f"Unexpected error installing tools: {str(e)}"
+            error_msg = f"Error during parallel installation: {str(e)}"
             logging.error(error_msg)
-            logging.debug("Exception details:", exc_info=True)
-            print(f"{Colors.RED}Error: {error_msg}{Colors.RESET}")
+            print(f"\n{Colors.RED}[!] {error_msg}{Colors.RESET}")
             raise ToolInstallationError(error_msg) from e
 
     def _batch_install_tools(self, tools: List[str]) -> bool:
@@ -826,13 +825,12 @@ class ToolManager:
             # Already logged and raised
             raise
         except ToolInstallationError:
-            # Already logged and raised
+            # Re-raise ToolInstallationError as-is
             raise
         except Exception as e:
-            error_msg = f"Unexpected error removing tools: {str(e)}"
+            error_msg = f"Error during parallel removal: {str(e)}"
             logging.error(error_msg)
-            logging.debug("Exception details:", exc_info=True)
-            print(f"{Colors.RED}Error: {error_msg}{Colors.RESET}")
+            print(f"\n{Colors.RED}[!] {error_msg}{Colors.RESET}")
             raise ToolInstallationError(error_msg) from e
 
     def _batch_remove_tools(self, tools: List[str]) -> bool:
@@ -1131,13 +1129,12 @@ class ToolManager:
             # Already logged and raised
             raise
         except ToolInstallationError:
-            # Already logged and raised
+            # Re-raise ToolInstallationError as-is
             raise
         except Exception as e:
-            error_msg = f"Unexpected error updating tools: {str(e)}"
+            error_msg = f"Error during parallel update: {str(e)}"
             logging.error(error_msg)
-            logging.debug("Exception details:", exc_info=True)
-            print(f"{Colors.RED}Error: {error_msg}{Colors.RESET}")
+            print(f"\n{Colors.RED}[!] {error_msg}{Colors.RESET}")
             raise ToolInstallationError(error_msg) from e
 
     def _batch_update_tools(self, tools: List[str]) -> bool:

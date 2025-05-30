@@ -57,4 +57,4 @@ docs/_build/
 target/
 
 # Useless files
-.DS_Store
+.DS_Store.idea/

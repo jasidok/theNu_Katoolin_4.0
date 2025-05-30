@@ -671,13 +671,21 @@ class ToolManager:
             str: Human-readable error reason
         """
         if "Unable to locate package" in stderr:
-            return "Package not found in repositories"
+            return "Package not available in current repositories"
         elif "python3-charset-normalizer" in stderr and "python3 (>= 3.13~)" in stderr:
-            return "Python 3.13+ required but system has 3.12 (version conflict)"
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
         elif "python3-psycopg2" in stderr and "python3 (>= 3.13~)" in stderr:
-            return "Python 3.13+ required but system has 3.12 (version conflict)"
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
+        elif "python3-tk" in stderr and "python3 (>= 3.13~)" in stderr:
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
+        elif "python3-zope.interface" in stderr and "python3 (>= 3.13~)" in stderr:
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
+        elif "python3-pydantic-core" in stderr and "python3 (>= 3.13~)" in stderr:
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
+        elif "python3-uvloop" in stderr and "python3 (>= 3.13~)" in stderr:
+            return "Requires Python 3.13+ (system has 3.12) - Ubuntu/Kali compatibility issue"
         elif "dependency" in stderr.lower() and "conflict" in stderr.lower():
-            return "Dependency conflicts (version mismatch)"
+            return "Dependency conflicts (Ubuntu/Kali package differences)"
         elif "broken" in stderr.lower():
             return "Broken dependencies"
         elif "Permission denied" in stderr:
@@ -687,7 +695,9 @@ class ToolManager:
         elif "No space left" in stderr:
             return "Insufficient disk space"
         elif "pkgProblemResolver::Resolve generated breaks" in stderr:
-            return "Complex dependency conflicts detected"
+            return "Complex dependency conflicts (Ubuntu/Kali compatibility)"
+        elif "caused by held packages" in stderr:
+            return "Conflicts with held packages (system protection)"
         else:
             # Return first meaningful line of error for brevity
             lines = [line.strip() for line in stderr.split('\n') if line.strip()]

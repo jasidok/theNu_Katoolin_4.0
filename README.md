@@ -1,8 +1,8 @@
-# Katoolin 3
+# the_Nu_Katoolin_4.0
 
 [![Licence - GNU General Public License v2.0](https://img.shields.io/badge/Licence-GNU_General_Public_License_v2.0-2ea44f)](https://github.com/0xGuigui/Katoolin3/blob/master/LICENCE)
 [![Python 3](https://img.shields.io/badge/Python_3-gray?logo=python)](https://www.python.org/)
-[![Katoolin 3](https://img.shields.io/badge/Katoolin_3-darkgreen?logo=Kali+Linux&logoColor=white)](https://github.com/0xGuigui/Katoolin3/)
+[![Nu Katoo 4](https://img.shields.io/badge/Nu_Katoo_4-darkgreen?logo=Kali+Linux&logoColor=white)](https://github.com/0xGuigui/Katoolin3/)
 
 ![Logo](https://i.imgur.com/FbsdrLU.png)
 
@@ -38,11 +38,11 @@ At first, clone the repo with the command:
 
 Assign the necessary permissions to the file for it to run as a program:
 
-    chmod +x katoolin3.py
+    chmod +x NuKatoo4.py
 
-Then run the Katoolin3 script as sudo:
+Then run the script as sudo:
 
-    sudo ./katoolin3.py
+    sudo ./NuKatoo4.py
 
 When you started the script, you can:
 
